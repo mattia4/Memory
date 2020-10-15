@@ -1,0 +1,96 @@
+.list-option{
+    background-color: #FFFFCC;
+    height: 1000px;    
+}
+.close{
+    position:relative;
+    left: 50px; 
+    top: 30px; 
+    text-align: center;
+    width: 240px;
+    height: 20px;
+    padding-bottom:8px;  
+    padding-top:8px;  
+    margin-bottom: 15px; 
+    font-family: sans-serif;
+    font-weight: bolder;  
+    background-color: red;     
+    border-radius: 5px;
+    cursor:pointer; 
+}
+a,a:active{
+    position:relative;
+    top: 3px;
+    width: 30px;
+    height: 30px; 
+    color: white;
+    text-decoration: none;
+} 
+ul{
+    width: auto;
+    display: flex;
+    list-style: none;
+}
+.container{
+    display: flex;
+    justify-content: left;
+    flex-direction: column; 
+}
+.users-message{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    
+}
+.messaggio{
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    position: relative;
+    right: 28px ;
+}
+button{
+    width: 180px ;
+    background-color: green;    
+    border: solid 0px white;
+    padding: 5px;  
+    color: white ;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif ;
+    font-style:normal;
+    font-size: 13px;
+    position: relative;
+    top: 20px; 
+    right: 30px;
+}
+button:hover{ 
+    color:white;     
+    transition-duration:  0.5s ;
+    background-color: greenyellow; 
+}
+#user_name{
+    border-radius: 2px ; 
+    width: 300px;
+}
+.display_msg{
+    width: 100%;
+    height: 25px; 
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+.msg_style{
+    width: auto;  
+    
+}
+@keyframes anim_user{
+    to{transform: scale(1.2); color:green;}
+} 
+.appear_anim{
+    animation:menu_app_anim 1s 1;
+}
+@keyframes menu_app_anim{
+    from{transform: scale(0.0)}
+    to{transform: scale(1.0)}
+}

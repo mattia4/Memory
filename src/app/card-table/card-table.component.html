@@ -1,0 +1,48 @@
+<div class='game_window appear_anim' >
+    <button class='close' [routerLink]='close_game()' (click)='stop_game()'>
+        <a [routerLink]='close_game()'>X</a>        
+    </button>        
+    <button *ngIf="tableChoised() !== undefined " class='button_style'  >PUNTEGGIO GIOCATORE: {{ game_settings.player_info.player_points }} </button>
+    <button *ngIf='this.gameOptionsService.getOption().diff != undefined' 
+        class='button_style'>Difficoltà:  {{ this.gameOptionsService.getOption().diff  }} </button>
+    <button *ngIf='this.gameOptionsService.getOption().diff != undefined && this.gameOptionsService.getOption().diff != "Facile"' 
+    class='button_style'>Mosse rimaste:  {{ this.game_settings.number_moves  }}</button>
+    <button *ngIf='this.gameOptionsService.getOption().diff == "Difficile"' 
+    class='button_style'>Tempo rimasto:  {{ this.game_settings.timer  }}</button>
+    <button *ngIf='playerInfoService.getPlayer() != undefined' class='button_style'>Giocatore:  {{ game_settings.player_info.player_name }} </button>
+    <button *ngIf='tableChoised() !== undefined && this.game_settings.card_info.checkTurnedCards.length == 0 && tableChoised() == "Custom" || tableChoised() == "8 X 8" ' class="random_style" (click)='disTable()' >disordina</button>
+    <h1 class='motto_style' *ngIf='playerInfoService.getPlayer().motto != undefined'> {{ game_settings.player_info.player_motto }} </h1>
+    <button *ngIf="tableChoised() !== undefined && this.game_settings.card_info.checkTurnedCards.length == 0 && this.game_settings.table_setting.table_disordered == false" class='random_style'  (click)='random_board_m()'>NUOVA DISPOSIZIONE! </button>    
+    <ul *ngIf='this.game_settings.loading==true' style='display:flex; flex-direction:row;list-style: none;position:relative;left: 80px;'>
+        <li>Caricamento table disorder</li>
+        <li> <div id='loading'></div></li>                     
+    </ul>
+    <ul *ngIf=' this.game_settings.load_collision == true' style='display:flex; flex-direction:row;list-style: none;position:relative;left: 80px;'>
+        <li>Caricamento cards collision  </li>
+        <li > <div id='loading_collision'></div></li>  
+    </ul>    
+    <table *ngIf="tableChoised() === undefined " class='cards_table'>        
+        <h3 class='selection_error'>Seleziona una dimensione per la tabella dalle opzioni!</h3>
+        <p class='selection_error_ad'>        Opzioni -> tavola da gioco -> click per scegliere</p>         
+    </table>  
+    <table *ngIf="playerInfoService.getPlayer() === '' " class='cards_table' >        
+        <h3 class='selection_error'>Registrati o loggati per poter giocare!</h3>
+        <p class='selection_error_ad'>        Crea giocatore -> scrivi il nome -> click per confermare</p>         
+    </table>     
+    <p *ngIf='this.game_settings.endGame' class='endGame_style'>PARTITA CONCLUSA!</p>
+    <h2 *ngIf='this.game_settings.endGame && this.game_settings.timer == 0 && this.gameOptionsService.getOption().diff == "Difficile" ' class='endGame_style' style='position:relative;top:20px;'>TEMPO ESAURITO!!!</h2>
+   
+    <table *ngIf="game_settings.table_setting.table_setted == true && playerInfoService.getPlayer() != ''" class='cards_table' >
+        <tr *ngFor='let el of game_settings.table_setting.a;let i = index'>                     
+                <td *ngFor='let el of game_settings.table_setting.b;let j = index' class="card_container" [class]=' game_settings.table_setting.card_anim[getIndex(i,j)]'>                  
+                    <app-card [image]='game_settings.table_setting.m[i][j]' [flipped]='isFlipped(getIndex(i,j))' [turn] = 'game_settings.card_info.turning[getIndex(i,j)]' [idp]='getIndex(i,j)' [right]='game_settings.card_info.cond[getIndex(i,j)]' (clicked)='cardClicked($event)'>                                    
+                    </app-card>                                                                          
+                </td>                          
+        </tr>
+    </table>          
+</div>
+
+<!--Sono state sostituite le seguenti info a,b,m, e altro con 
+game_settings.table_setting.a,game_settings.table_setting.b,game_settings.table_setting.
+per tornare alla versione precedente basta rimuovere ogni occorrenza di game_settings.table_setting, game_settings.card_info, o in generale ogni cosa inizi con game_settings.qualcosa
+-->

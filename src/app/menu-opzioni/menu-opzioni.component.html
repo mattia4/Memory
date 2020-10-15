@@ -1,0 +1,52 @@
+<ul class='list-option appear_anim'>
+    <li class='close' [routerLink]='close()'>
+        <a [routerLink]='close()' class='button_anim_style' (click)='button_anim(0)'>X</a>        
+    </li>
+    <li class='item'>
+        <h1 class='option'>Tavolo da gioco</h1> 
+        <ul>
+            <li class='item'>                
+                <button (click)='setTable()' class='button_anim_style' (click)='button_anim(1)'> <h4> {{ tableDimension }} </h4> </button>
+            </li>
+            <li *ngIf='this.custom_setted' class='item'>
+                <button (click)='setRow()' class='button_anim_style2' (click)='button_anim2(0)'> <h4>Righe: {{ rowDimension }} </h4> </button>
+                <button (click)='resetRow()' class='button_anim_style2' (click)='button_anim2(1)'> <h4>Azzera righe</h4> </button>
+            </li>
+            <li *ngIf='this.custom_setted' class='item'>
+                <button (click)='setColumn()' class='button_anim_style2' (click)='button_anim2(2)'> <h4>Colonne: {{ columnDimension }} </h4> </button>
+                <button (click)='resetColumn()' class='button_anim_style2' (click)='button_anim2(3)'> <h4>Azzera colonne</h4> </button>
+            </li>
+        </ul>
+    </li>
+    <li *ngIf='this.custom_setted == false' class='item'>
+        <h1 class='option'>Difficoltà</h1>
+        <ul>
+            <li class='item'>                
+                <button (click)='setDiff()' class='button_anim_style' (click)='button_anim(2)'> <h4> {{ gameDiff }} </h4> </button>
+            </li>
+        </ul>
+    </li>
+
+    <li *ngIf='this.custom_setted == false' class='item' class='item'>
+        <h1 class='option'>Carte sempre diverse</h1>
+        <ul>
+            <li class='item' >                
+                <button type='checkbox' (click)='setDifferentCards()' class='button_anim_style' (click)='button_anim(3)'> <h4> {{ different_cards }}</h4> </button>
+            </li>
+        </ul>
+    </li>
+    <li *ngIf='this.custom_setted == true' class='item' class='item'>
+        <h1 class='option'>Carte sempre diverse</h1>
+        <ul>
+            <li class='item' >                
+                <button type='checkbox' (click)='setDifferentCards()' class='button_anim_style' (click)='button_anim(2)'> <h4> {{ different_cards }}</h4> </button>
+            </li>
+        </ul>
+    </li>
+    <br>
+    <li> <h4 *ngIf=' this.errore_carte_Dispari == true' style='color:red;'>Il prodotto tra le righe e le colonne deve essere pari!</h4></li>
+    <br>
+    <li  *ngIf=' this.errore_carte_Dispari == false' class='saves_style'>
+        <button class='saves_style button_anim_style' (click)='saves()'  [routerLink]='close()'>Salva modifiche</button>
+    </li> 
+</ul>

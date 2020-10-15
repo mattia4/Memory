@@ -1,0 +1,27 @@
+<ul class='list-option appear_anim'>
+    <li class='close' [routerLink]='closeLogin()'>
+        <a [routerLink]='closeLogin()'>X</a>        
+    </li>
+
+    <li>
+        <form [formGroup]='loginForm' (ngSubmit)='onSubmit()' class='form' >
+            <label>
+                Nome:
+                <input formControlName='Name' type="text" id='user_name' value=''>                 
+            </label>
+            <br>
+            <button type="submit"            
+            [disabled]='!loginForm.valid || !checkLogin()'            
+            [class]="'submit' + ' ' + (loginForm.valid && checkLogin() ? 'continue' : 'not')"
+            (click) ='checkLogin()'
+            [routerLink]='closeLogin()'
+            class='submit'>
+                Accedi
+            </button>
+            <br> 
+            <div class='errore_login' *ngIf='!checkLogin()  '>Errore login! </div>
+        </form>
+    </li>    
+    
+</ul>
+<!-- && loginForm.Name != "" -->

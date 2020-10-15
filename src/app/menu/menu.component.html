@@ -1,0 +1,44 @@
+<h1 class='game_title'>Welcome to Memory 2.0</h1>
+<br>
+<button class='back' (click)='menu_selection_back()' >L</button>
+<button class='right' (click)='moveRight()'>R</button> 
+
+<div class='window_menu'> 
+    <ul class='menu_list'>            
+        <li class='list_item ' >            
+            <h2 class='item' (click)='button_anim(0)' [routerLink]='[{ outlets: { game: ["card-table"] } } ]' (click)='show_game()'>GIOCA</h2>   
+            <router-outlet name='game'></router-outlet>                              
+        </li>             
+        <li class='list_item '
+        [routerLink]='[{ outlets: { opzioni: ["menu-opzioni"] } } ]'>
+            <h2 class='item' (click)='button_anim(1)' >OPZIONI</h2>         
+            <router-outlet name='opzioni'></router-outlet>     
+        </li>         
+        <li [class]="'list_item  ' + nascondiClassifica  ">
+            <h2 class='item' (click)='button_anim(2)'  [routerLink]='[{ outlets: { tabella: ["classifica"] } }]' >CLASSIFICA</h2>
+            <router-outlet name='tabella'></router-outlet>                        
+        </li>
+        <li class='list_item '>
+            <h2 class='item' (click)='button_anim(3)'  [routerLink]='[{ outlets: { player: ["new-player"] } } ]'>CREA UTENTE</h2>
+            <router-outlet name='player'></router-outlet>               
+        </li>
+        <li class='list_item '>
+            <h2 class='item' (click)='button_anim(4)'  [routerLink]='[{ outlets: { login: ["login"] } } ]' >LOGIN</h2>   
+            <router-outlet name='login'></router-outlet>                           
+        </li>
+        <li class='list_item ' >            
+            <h2 class='item' (click)='button_anim(5)'  [routerLink]='[{ outlets: { message: ["message"] } } ]'>MESSAGGI</h2>         
+            <router-outlet name='message'></router-outlet>                                     
+        </li> 
+        <li class='list_item ' >            
+            <h2 class='item' (click)='button_anim(6)'  [routerLink]='[{ outlets: { statistiche: ["statistiche"] } } ]'>STATISTICHE</h2>         
+            <router-outlet name='statistiche'></router-outlet>                                     
+        </li> 
+    </ul>
+    <p class='succ'>| {{succ}}</p>
+    <p class='prec'> {{prec}} |</p>    
+    
+    <router-outlet name='opzioni'></router-outlet>   
+</div>
+
+

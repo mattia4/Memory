@@ -1,0 +1,4 @@
+<div [class]="'card start_anim' + ' ' +  (turn ? 'front' : 'retro')  "  (click)='onClick()'>     
+    <img *ngIf='right == false || right == null' [src]="image" [id]="right" [class]="'card' + ' ' +  (turn  ? 'cardVisibilityOn' : 'cardB')">  
+    <img *ngIf='right'[src]="image" [id]="right" [class]="'card' + ' ' +  (right  ? 'cardVisibilityOn' : '')">  
+</div>

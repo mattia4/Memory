@@ -1,0 +1,208 @@
+
+.game_window{
+    width: 500px;
+    height: auto ;
+    position:relative;
+    top: 20px; 
+    right: 30%;  
+} 
+table{    
+    transition-duration: 1s ;
+}
+app-card{
+    width: 200px;
+    height: 200px;
+}
+.card_container{
+    width: 200px;
+    height: 200px;
+}
+.cards_table,button {    
+    margin: auto ;
+    position: relative; 
+    left: 10%; 
+}
+.cards_table{
+    width: auto;
+    height: auto;   
+    flex-basis: auto;
+    display: flex ;    
+    flex-wrap: wrap;    
+}
+tr{    
+    display: flex;     
+}
+.button_style{
+    width: auto;
+    font-family: roboto;
+    text-transform: uppercase;
+    font-weight: bold ;
+    border: 0px white;
+    color: orange; 
+    height: 50px;    
+    background-color: bisque;
+    transform: skew(-15deg);
+}
+.selection_error{
+    color:red; 
+    font-family: 'Courier New', Courier, monospace;
+}
+.selection_error_ad{
+    color:red; 
+    font-family: 'Courier New', Courier, monospace;
+    animation: error_anim 3s infinite; 
+}
+@keyframes error_anim{
+    0%{transform:scale(1.0)}
+    50%{transform:scale(1.2)}
+    100%{transform:scale(1.0)}           
+}
+.animate{
+    width: 200px;
+    height: 205px;
+    transition-duration: 600ms;
+    transform: rotateY(180deg) ; 
+    pointer-events: none ;    
+    /*animation: animate 1800ms 1; */
+}
+.animate_turn_back{
+    width: 200px;
+    height: 205px; 
+    transition-duration: 600ms;
+    transform: rotateY(0deg);
+    pointer-events: none;
+}
+.rnd_card{
+    animation: randomCard_anim 1s 1;
+}
+
+@keyframes animate{
+    0%{transform: rotateY(0deg);}
+    50%{transform: rotateY(180deg);}    
+}
+
+@keyframes randomCard_anim{
+    0%{transform: rotateY(0deg);}
+    50%{transform: rotateY(180deg); }    
+}
+.motto_style{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: indigo;
+    font-size: 35px;
+    position: relative;
+    left: 30%;      
+    animation: motto_anim 1.5s 1 ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+@keyframes motto_anim{
+    from{transform: scale(0.5) translate(0px, -10px) skew(-90deg, 0deg);} 
+    to{transform: scale(1.3)}
+}
+.random_style{
+    text-align: center;
+    width: 200px;  
+    height: 50px; 
+    transform: skew(-15deg);   
+    padding-bottom:8px;    
+    padding-top:8px;   
+    font-family: sans-serif;
+    font-weight: bolder;  
+    background-color: greenyellow;    
+    border-radius: 5px;
+    cursor:pointer; 
+    color:white;
+}
+.close{
+    text-align: center;
+    width: 200px;  
+    height: 50px;  
+    transform: skew(-15deg);  
+    padding-bottom:8px;    
+    padding-top:8px;   
+    font-family: sans-serif;
+    font-weight: bolder;  
+    background-color: red;    
+    border-radius: 5px;
+    cursor:pointer; 
+}
+a,a:active{
+    position:relative;
+    top: 3px;
+    width: 30px;
+    height: 30px; 
+    color: white;
+    text-decoration: none;
+}
+.turned_card_style{
+    border: solid 3px green; 
+}
+.endGame_style{
+    font-weight: bold;
+    font-size: 30px;
+    color:white;
+    animation: endGame_anim 500ms 1 ease-in;
+    animation-fill-mode: forwards;
+}
+@keyframes endGame_anim{
+    from{transform: translate(0px) rotate(0deg);}
+    to{
+       transform: translate(500px) rotate(360deg) scale(2.0); 
+       color:green
+    }    
+}
+@keyframes card_start_anim{
+    from{transform: translate(-500px) rotate(0deg); opacity: 0; border-radius: 5px; } 
+    to{transform: translate(0px) rotate(360deg); opacity: 1; border-radius: 0px;} 
+}  
+.appear_anim{
+    animation:menu_app_anim 1s 1;
+}
+@keyframes menu_app_anim{
+    from{transform: scale(0.0)}
+    to{transform: scale(1.0)}
+}
+td{       
+    display: flex; 
+    cursor: pointer; 
+    padding:0;
+    opacity: 0; 
+}
+app-card{
+    padding:0;
+}
+@keyframes td_card_anim{
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(5deg)}
+    50%{transform: rotate(0deg)}
+    75%{transform: rotate(-5deg)}
+    100%{transform: rotate(0deg)}
+}
+.loading_style{
+    opacity:0;
+    position: relative;    
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    background-color: silver; 
+    border: solid 2px white;
+    border-radius: 5px;    
+    transform: skew(-20deg);
+}
+#loading{ 
+    width: 1px;
+    height: 30px;
+    background-color:green;
+    border-radius: 5px;    
+}
+#loading_collision{ 
+    width: 1px;
+    height: 30px;
+    background-color:green;
+    border-radius: 5px;   
+}
+@keyframes loading_anim{
+    from{opacity:1;padding-left:0px;}
+    to{opacity:1;padding-left:320px;}
+    
+}

@@ -1,0 +1,74 @@
+
+<ul *ngIf='show_stat == true && player_name != undefined' class='appear_anim' style='list-style: none;'>
+    <br>
+    <li class='close' [routerLink]='statPlayer()'>
+        <a [routerLink]='statPlayer()'>X</a>        
+    </li>
+    <li><h1 style='width:500px;height:30px;color:#FFA500; text-align: left; font-family: roboto;'> STATISTICHE LOCALI</h1></li>
+    <br>
+    <li class='list-stat' style="display: flex; flex-direction: row;">Numero partite 
+        <div class='numero_partite' *ngFor='let partita of numero_partite;'>  </div>
+          <div class='change_match' (click)='matchChoised()'> > </div> </li>
+    <li class='list-stat'>Giocatore: <h4> {{stat.giocatore | uppercase }} </h4> </li>
+    <li class='list-stat'>Punteggio giocatore: <h4> {{stat.punteggio}} </h4> </li>
+    <li class='list-stat'>Difficoltà: <h4> {{stat.diff}} </h4> </li>
+    <li class='list-stat'>Dimensione tabella: <h4> {{stat.grandezza_tabella}} </h4> </li>
+    <li class='list-stat'>Tempo rimasto: <h4> {{stat.tempo_rimasto}} </h4> </li>
+    <li class='list-stat'>Carte indovinate: 
+        <div  class='card_container'>
+            <div *ngFor='let cards of carte_scoperte;'>
+                <img class='carte_indovinate' src="{{cards.name}}" alt="">                
+            </div>
+        </div>
+       <h2> {{ carte_scoperte.length }} su {{stat.carte_totali}}</h2>
+    </li>
+    <li class='list-stat'>Carte sempre diverse: <h4> {{stat.carte_diverse}} </h4> </li>
+    <li class='list-stat'>Disposizione casuale: <h4> {{stat.disposizione_casuale}} </h4> </li>
+    <li class='list-stat'>Mosse eseguite: <h4> {{stat.mosse_eseguite}} </h4> </li>
+    <li class='list-stat'>Mosse rimaste: <h4> {{stat.mosse_rimaste}} </h4> </li>
+    <li class='list-stat'>Tabella disordinata: <h4> {{stat.tabella_disordinata}} </h4> </li>    
+</ul>
+<br>
+<ul *ngIf='show_stat==false' class='appear_anim' style='list-style: none;' >
+    <br>
+    <li class='close' [routerLink]='statPlayer()'>
+        <a [routerLink]='statPlayer()'>X</a>        
+    </li>    </ul>
+    <table  class='appear_anim'>
+        <tr>
+            <th style="padding:0px;"> 
+                <h1 style='width:500px;height:30px;color:#FFA500; text-align: left; font-family: roboto;'> STATISTICHE GLOBALI</h1>
+              <p style='width:500px;height:30px;color:green; text-align: left; font-family: roboto;'> per vedere le tue statistiche devi loggare e aver completato almeno una partita </p>    
+            </th>
+        </tr> 
+        <tr>       
+            <td style='margin:auto;'> <p style='margin:0px;width:500px;'> Numero match totali ({{this.global_stat.numero_partite}}) </p> <div class='global_stat numero_partite'></div></td>               
+        </tr>  
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Punteggio massimo: ({{ this.global_stat.punteggio_massimo }}) </p><div class='global_stat punteggio_massimo' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'> <h3 style='text-align:left;color:#FFFFCC;'>{{ this.global_stat.punteggio_massimo }}</h3> </div></td>               
+        </tr>  
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite in Facile ({{ this.global_stat.partite_in_facile}}) </p><div class='global_stat partite_facile' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'></div></td>               
+        </tr>   
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite in Media ({{ this.global_stat.partite_in_media}}) </p><div class='global_stat partite_media' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'></div></td>               
+        </tr> 
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite in Difficile ({{ this.global_stat.partite_in_difficile}})</p><div class='global_stat partite_difficile' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'> <h2></h2> </div></td>               
+        </tr>    
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite su una tabella 2x2 ({{this.global_stat.dimensione_2x2}}) </p><div class='global_stat dimensione_facile' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'></div></td>               
+        </tr>   
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite su una tabella 4x4 ({{this.global_stat.dimensione_4x4}}) </p><div class='global_stat dimensione_media' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'></div></td>               
+        </tr> 
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite su una tabella 8x8 ({{this.global_stat.dimensione_8x8}})</p><div class='global_stat dimensione_grande' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'> <h2></h2> </div></td>               
+        </tr> 
+        <tr>
+            <td style='margin:auto;'><p style='margin-bottom:10px;width:500px;'> Partite su una tabella personalizzata ({{this.global_stat.dimensione_custom}})</p><div class='global_stat dimensione_custom' style='transform: scale(1.0) skew(-20deg); transition-duration: 1s;'> <h2></h2> </div></td>               
+        </tr>                                  
+    </table>
+    
+   
+    

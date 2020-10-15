@@ -1,0 +1,84 @@
+.close{
+    text-align: center;
+    width: 240px;
+    height: 20px;
+    padding-bottom:8px;  
+    padding-top:8px;  
+    margin-bottom: 15px; 
+    font-family: sans-serif;
+    font-weight: bolder;  
+    background-color: red;     
+    border-radius: 5px;
+    cursor:pointer; 
+    position: relative;
+    bottom: 40px ;
+}
+a,a:active{
+    position:relative;
+    top: 3px;
+    width: 30px;
+    height: 30px; 
+    color: white;
+    text-decoration: none;
+} 
+.list-option{
+    width: 240px ; 
+    height: 400px;
+    list-style: none;    
+    height: auto;
+    position:relative;
+    top: 20px;     
+    background-color: beige; 
+    border-radius: 5px; 
+    padding:80px; 
+}
+.form{
+    width: 240px ; 
+    height: 400px;
+    list-style: none;    
+    height: auto; 
+    background-color: beige; 
+    border-radius: 5px; 
+    padding:0px; 
+
+}
+input{
+    margin: 5px; 
+    border-radius: 5px;   
+}
+.submit{
+    width: 240px;
+    height: 30px;
+    padding-bottom:8px;  
+    padding-top:8px; 
+    margin-top: 5px ;
+    font-family: roboto; 
+    font-weight: bold;
+    font-size: 15px;
+    color: orange;
+    border-radius: 5px;
+    cursor:pointer;
+    background-color: bisque;
+    border: solid 0px;
+    position: relative; 
+    top: 40px ; 
+}
+.continue{
+    background-color: green;
+    color:white; 
+}
+.not{
+    background-color: red;
+    color:white;
+}
+.errore_login{
+    position: relative; 
+    top: 50px; 
+}
+.appear_anim{
+    animation:menu_app_anim 1s 1;
+}
+@keyframes menu_app_anim{
+    from{transform: scale(0.0)}
+    to{transform: scale(1.0)}
+}

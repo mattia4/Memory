@@ -1,0 +1,90 @@
+.list-option{
+    width: 240px ;     
+    list-style: none;    
+    height: auto;
+    position:relative;
+    bottom: 65px ;  
+    left: 39% ;      
+    top: 7% ;
+    background-color: beige; 
+    border-radius: 5px;  
+    padding: 80px;  
+}
+*{
+    text-transform: uppercase;
+}
+.item{
+    color: orange;  
+    width: 300px ;        
+}
+
+.option{
+    font-family: monospace;
+}
+
+.close{
+    text-align: center;
+    width: 240px;
+    height: 20px;
+    padding-bottom:8px;  
+    padding-top:8px;   
+    font-family: sans-serif;
+    font-weight: bolder;  
+    background-color: red;    
+    border-radius: 5px;
+    cursor:pointer; 
+    position:relative; 
+    bottom: 30px; 
+}
+
+a,a:active{
+    position:relative;
+    top: 3px;
+    width: 30px;
+    height: 30px; 
+    color: white;
+    text-decoration: none;
+}
+button{
+    width: 220px;
+    background-color: bisque;
+    border: solid 0px white;
+    padding: 5px; 
+    color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif ;
+    font-style:normal;
+    font-size: 13px;        
+}
+ul{
+    position:relative; 
+    right: 15% ;
+}
+button:hover{
+    color:white;    
+    transition-duration:  0.5s ;
+    background-color: greenyellow; 
+}
+.saves_style{ 
+    width: 100%;
+    height: 60px;    
+    position:relative; 
+    top: 30px;
+    right: 8px;  
+}
+
+@keyframes button_anim{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(5deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(-5deg);}
+    100%{transform: rotate(0deg);} 
+}
+.appear_anim{
+    animation:menu_app_anim 1s 1;
+}
+@keyframes menu_app_anim{
+    from{transform: scale(0.0)}
+    to{transform: scale(1.0)}
+}

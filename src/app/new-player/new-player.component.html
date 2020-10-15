@@ -1,0 +1,31 @@
+<ul class='list-option appear_anim'>
+    <li class='close' [routerLink]='closeNewPlayer()'>
+        <a [routerLink]='closeNewPlayer()'>X</a>        
+    </li>
+
+    <li>
+        <form [formGroup]='playerForm' (ngSubmit)='onSubmit()' class='form' >
+            <label>
+                Nome:
+                <input type="text" formControlName='Name' id='user_name' value='' minlength='3' >                                                                
+                <input class='rnd_button' type="button"  value="random name" (click)='generateName()'>
+            </label>
+            
+            <br>
+            <label>
+                Motto:
+                <input type="text" formControlName='Motto'>
+            </label>
+            <br>
+            <button type="submit" 
+            (click)='savePlayer()'
+            [disabled]='!playerForm.valid' 
+            [class]="'submit' + ' ' + (playerForm.valid ? 'continue' : 'not')" 
+            [routerLink]='closeNewPlayer()'
+            >
+                CREA
+            </button>
+        </form>
+        
+    </li>
+</ul>

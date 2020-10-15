@@ -1,0 +1,35 @@
+<div class='list-option appear_anim' >
+<form [formGroup]='sendForm' class='form' >
+    <ul class='container'>
+        <li class='close' [routerLink]='closeNewMessage()'>
+            <a [routerLink]='closeNewMessage()'>X</a>        
+        </li>
+        <li class='title'>
+            <h4 style='position:relative; right: 20px; '> messaggia a qualcuno!</h4>
+        </li>    
+        <h2 style='position:relative; right: 20px; '>Utenti disponibili:</h2>   
+                                
+        <li *ngFor='let user of userToMessage; i as index' class='users-message'>       
+           <label *ngIf='user.name != "msg" && user.name != this.playerInfoService.getPlayer()'> <input (click)='selectAutoUser(user.name)' (click)='anim_user()' type="radio" formControlName='Name' name='Name' value="{{ user.name }}" class='c'> {{ user.name }} </label>                              
+        </li>
+    
+        <br>
+       
+        <input formControlName='Name' type="text" id='user_name' value='' placeholder="scrivi utente">
+        <br>
+        <li>
+            <input type="text" formControlName='Message' class='messaggio'>
+            <br>
+            <button type="submit" value="INVIA" (click)='onSend()' [routerLink]='closeNewMessage()'>INVIA</button>
+        </li>                  
+    </ul>
+</form>
+   <br>
+   <h1>MESSAGGI RICEVUTI </h1>
+   <ul *ngFor='let msg of msgArray;' class='display_msg'>    
+       <li *ngIf='msg.dest == get_permiss_for_user' class='msg_style'>
+          {{ msg.from.name }} : {{ msg.descr }} 
+       </li>     
+   </ul>
+     
+</div>

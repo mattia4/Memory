@@ -1,0 +1,17 @@
+<h1 *ngIf='playerArray.length == 0' style='position:relative;top: 60px;' (click)='getAllplayerFromLocalStorage()'>vuota</h1>
+<ul>
+    <li *ngFor='let player of playerArray; let i = index '[class]="'classifica_style' + i + ' '+ 'visibility_none'  +  ' '  + 'classifica_style'+i">
+        <h1 class='name_style'>  {{i + 1}}  {{ player.name | uppercase  }} : {{ player.points }} punti </h1>
+    </li>
+</ul>
+ 
+
+<!-- 
+    salvataggio nel caso l'uso di sort() mi rompa qualcosa
+    <h1 *ngIf='playerArray.length == 0' style='position:relative;top: 60px;' (click)='getAllplayerFromLocalStorage()'>vuota</h1>
+<ul>
+    <li *ngFor='let player of playerArray; let i = index '[class]="'classifica_style' + i + ' '+ 'visibility_none'  +  ' '  + 'classifica_style'+i">
+        <h1 class='name_style'>  {{i + 1}}  {{ player.name | uppercase  }} : {{ player.points }} punti </h1>
+    </li>
+</ul>
+-->
